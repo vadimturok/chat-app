@@ -1,0 +1,52 @@
+.chatItem{
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+
+  &:hover{
+    background-color: rgba(0, 112, 243, 0.11);
+  }
+
+  .top{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .messageDate{
+      @media (max-width: 1290px) {
+        display: none;
+      }
+      span{
+        font-size: 15px;
+      }
+    }
+    .userInfo{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .chatInfo{
+        display: flex;
+        flex-direction: column;
+
+        span{
+          &:nth-child(1){
+            font-size: 17px;
+          }
+          &:nth-child(2){
+            color: gray;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 200px;
+          }
+        }
+      }
+    }
+    .messageDate{
+      span{
+
+      }
+    }
+  }
+}

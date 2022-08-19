@@ -1,0 +1,48 @@
+.wrapper{
+  width: 400px;
+  height: 300px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .chatInfo{
+    .searchEmails{
+      text-align: center;
+      color: gray;
+    }
+    .emails{
+      text-align: center;
+      margin-top: 10px;
+      text-decoration: 1px underline;
+    }
+  }
+
+  .title{
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .googleAuth{
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    width: 250px;
+    border-radius: 20px;
+    font-size: 17px;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+
+    &:hover{
+      background-color: rgba(0, 112, 243, 0.08);
+      border-color: rgba(0, 112, 243, 0.45);
+    }
+  }
+}

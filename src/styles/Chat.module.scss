@@ -1,0 +1,97 @@
+.chatPage{
+  height: 100vh;
+  .chat{
+    width: 100%;
+    height: 100vh;
+    .top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 15%;
+      font-size: 30px;
+      padding: 20px;
+      background: rgba(211, 211, 211, 0.27);
+      border-bottom: 1px solid lightgrey;
+      .contactInfo{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .menuIcon{
+        display: none;
+        @media (max-width: 1020px) {
+          display: block;
+        }
+        .chatIcon{
+          font-size: 40px;
+          cursor: pointer;
+          &:hover{
+            color: #0070f3;
+          }
+        }
+      }
+    }
+
+    .middle{
+      height: 70%;
+      overflow-y: scroll;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .bottom{
+      height: 15%;
+      position: relative;
+      background: rgba(211, 211, 211, 0.27);
+      border-top: 1px solid lightgrey;
+
+      .searchInput{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95%;
+        background: #f9f9f9;
+        border-radius: 20px;
+        border: 1px solid lightgrey;
+
+        form{
+          display: flex;
+          align-items: center;
+          width: 96%;
+          @media (max-width: 420px) {
+            width: 90%;
+          }
+          .input{
+            background: none;
+            border-radius: 20px;
+            width: 100%;
+            border: none;
+            padding: 10px;
+            outline: none;
+            font-size: 15px;
+          }
+
+          button{
+            width: 0;
+            background: none;
+            border: none;
+            .sendIcon{
+              color: gray;
+              cursor: pointer;
+              &:hover{
+                color: #0070f3;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+

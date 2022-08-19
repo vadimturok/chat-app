@@ -1,0 +1,22 @@
+.message{
+  .messageInfo{
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+    .messageWrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .messageText{
+        padding: 8px;
+        border-radius: 20px;
+      }
+      .messageDate{
+        font-size: 10px;
+        color: gray;
+      }
+    }
+
+  }
+}

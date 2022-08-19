@@ -1,0 +1,16 @@
+.layout{
+  display: flex;
+  .sidebar{
+    width: 30%;
+    @media (max-width: 1020px) {
+      display: none;
+    }
+  }
+  .main{
+    width: 70%;
+    @media (max-width: 1020px) {
+      width: 100%;
+    }
+
+  }
+}
