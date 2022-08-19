@@ -3,7 +3,7 @@
 >  [_here_](https://chat-erpktcwcs-vadimturok.vercel.app/). 
 
 ## Table of Contents
-* [Technologies and Tools]()
+* [Technologies and Tools](#technologies-and-tools)
 * [Features](#features)
 * [Setup](#setup)
 * [Project Status](#project-status)
