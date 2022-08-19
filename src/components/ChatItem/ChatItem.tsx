@@ -19,7 +19,6 @@ const ChatItem: FC<ChatItemProps> = ({email, chatId}) => {
     const [user, setUser] = useState({} as User)
     const router = useRouter()
     const redirect = (id: string) => {
-        console.log('chat id: ', chatId)
         router.push(`/chat/${id}`)
     }
 
@@ -31,7 +30,7 @@ const ChatItem: FC<ChatItemProps> = ({email, chatId}) => {
     }
 
     useEffect(() => {
-        getUserByEmail(email).then(user => {setUser(user!); console.log('user: ', user)})
+        getUserByEmail(email).then(user => setUser(user!))
     }, [])
     return (
         user ?

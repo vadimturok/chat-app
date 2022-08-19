@@ -6,7 +6,7 @@ import Sidebar from "../Sidebar/Sidebar";
 const SideMenu: FC<{isOpen: boolean, setIsOpen: (isOpen: boolean) => void}> = ({isOpen, setIsOpen}) => {
     return (
         <SwipeableDrawer onOpen={() => setIsOpen(true)} onClose={() => setIsOpen(false)} anchor={'left'} open={isOpen}>
-            <Box sx={{width: 400}}>
+            <Box sx={{width: 360}}>
                 <Sidebar/>
             </Box>
         </SwipeableDrawer>

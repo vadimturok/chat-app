@@ -5,12 +5,22 @@
     @media (max-width: 1020px) {
       display: none;
     }
+
   }
   .main{
     width: 70%;
     @media (max-width: 1020px) {
       width: 100%;
     }
+  }
+}
+.mobileLayout{
+  display: flex;
 
+  .mobileSidebar{
+    width: 100%;
+  }
+  .mobileMain{
+    width: 100%;
   }
 }
