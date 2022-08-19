@@ -23,7 +23,6 @@ export const getOtherEmail = (users: string[], user: User) => {
 
 export const getChat = (chats: Chat[], contactEmail: string, userEmail: string) => {
     const chat = chats.find(chat => chat.users.includes(contactEmail) && chat.users.includes(userEmail))
-    console.log('chat: ', chat)
     return chat
 }
 

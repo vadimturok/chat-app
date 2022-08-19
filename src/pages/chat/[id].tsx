@@ -15,8 +15,6 @@ import {getNewJoke, getOtherEmail, getUserByEmail} from "../../utils";
 import {Chat} from "../../types/chat-type";
 import SideMenu from "../../components/SideMenu/SideMenu";
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import Loader from "../../components/Loader/Loader";
-import Layout from "../../components/Layout/Layout";
 
 
 const Chat = () => {
