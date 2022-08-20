@@ -28,6 +28,7 @@ const ChatItem: FC<ChatItemProps> = ({email, chatId}) => {
     if(messages?.[messages.length - 1]?.timestamp){
         date = new Date(messages[messages.length - 1]?.timestamp?.seconds * 1000)
     }
+    const sender = messages && messages[messages.length - 1]?.sender !== user.email
 
     useEffect(() => {
         getUserByEmail(email).then(user => setUser(user!))
@@ -40,7 +41,7 @@ const ChatItem: FC<ChatItemProps> = ({email, chatId}) => {
                     <Avatar sx={{width: 60, height: 60}} alt={user?.email!} src={user?.photoURL!} />
                     <div className={styles.chatInfo}>
                         <span>{user?.displayName}</span>
-                        <span style={{color:  messages && messages[messages.length - 1]?.sender !== user.email ? 'gray' : 'black'}}>{messages ? messages[messages.length - 1]?.text : ''}</span>
+                        <span style={{color: sender ? 'gray' : 'black'}}>{(sender && messages?.length > 0) && 'You: '}{messages ? messages[messages.length - 1]?.text : ''}</span>
                     </div>
                 </div>
                 <div className={styles.messageDate}>

@@ -5,9 +5,10 @@ import {auth, firestore} from "../../firebaseconfig";
 import Loader from "../components/Loader/Loader";
 import Login from "../components/Login/Login";
 import {User} from "@firebase/auth";
-import {addDoc, collection, doc, getDoc, setDoc} from "@firebase/firestore";
+import {doc, getDoc, setDoc} from "@firebase/firestore";
 import {useEffect} from "react";
 import Layout from "../components/Layout/Layout";
+import {seedInitialData} from "../utils";
 
 
 
@@ -19,9 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     const userSnap = await getDoc(userDocRef)
     await setDoc(userDocRef, JSON.parse(JSON.stringify(user)))
     if(!userSnap.exists()){
-      await addDoc(collection(firestore, 'chats'), {users: [user.email, 'alice@gmail.com']})
-      await addDoc(collection(firestore, 'chats'), {users: [user.email, 'lewis@gmail.com']})
-      await addDoc(collection(firestore, 'chats'), {users: [user.email, 'alex@gmail.com']})
+      await seedInitialData(user)
     }
   }
 

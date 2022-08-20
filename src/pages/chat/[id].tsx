@@ -11,7 +11,7 @@ import {useCollectionData, useDocumentData} from "react-firebase-hooks/firestore
 import {addDoc, collection, doc, orderBy, query, serverTimestamp, setDoc, Timestamp} from "@firebase/firestore";
 import {MessageType} from '../../types/message-type'
 import {User} from "@firebase/auth";
-import {getNewJoke, getOtherEmail, getUserByEmail} from "../../utils";
+import {getNewJoke, getOtherEmail, getUserByEmail, setLastMessage} from "../../utils";
 import {Chat} from "../../types/chat-type";
 import SideMenu from "../../components/SideMenu/SideMenu";
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
@@ -43,14 +43,6 @@ const Chat = () => {
         setTimeout(bottomOfChat?.current?.scrollIntoView({behavior: 'smooth', block: 'start'}), 100)
     }, [messages])
 
-    const setLastMessage = async (message: MessageType) => {
-        const docRef = doc(firestore, `chats/${id}`)
-        const newData = {
-            users: chat.users,
-            latestMessage: message
-        }
-        await setDoc(docRef, newData)
-    }
 
     const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -63,7 +55,7 @@ const Chat = () => {
             timestamp: serverTimestamp() as Timestamp
         }
         await addDoc(collection(firestore, `chats/${id}/messages`), newMessage)
-        await setLastMessage(newMessage)
+        await setLastMessage(newMessage, chat, id?.toString()!)
         setInput('')
         setTimeout(async () => {
             const jokeData = await getNewJoke();
@@ -73,7 +65,7 @@ const Chat = () => {
                 timestamp: serverTimestamp() as Timestamp
             }
             await addDoc(collection(firestore, `chats/${id}/messages`), responseMessage)
-            await setLastMessage(responseMessage)
+            await setLastMessage(responseMessage, chat, id?.toString()!)
         }, 10000)
     }
 
