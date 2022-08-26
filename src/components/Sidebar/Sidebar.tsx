@@ -15,6 +15,7 @@ import SearchResults from "../SearchResults/SearchResults";
 
 
 const Sidebar = () => {
+    const [isFocus, setIsFocus] = useState(false)
     const [input, setInput] = useState('')
     const [chat, setChat] = useState({} as Chat)
     const [notFound, setNotFound] = useState(false)
@@ -83,12 +84,16 @@ const Sidebar = () => {
                 <div onClick={logout} className={styles.logoutBtnResponsive}>
                     Log Out
                 </div>
-                <div className={styles.searchInput}>
+                <div
+                    style={{border: `1px solid ${isFocus ? 'black' : 'lightgray'}`, background: isFocus ? 'white' : '#f9f9f9'}}
+                    className={styles.searchInput}>
                     <form onSubmit={searchContacts}>
                         <button type={'submit'}>
                             <SearchIcon className={styles.searchIcon}/>
                         </button>
                         <input
+                            onFocus={() => setIsFocus(true)}
+                            onBlur={() => setIsFocus(false)}
                             value={input}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                             placeholder={'Search or start new chat'}

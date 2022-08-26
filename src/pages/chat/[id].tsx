@@ -18,6 +18,7 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 
 
 const Chat = () => {
+    const [isFocus, setIsFocus] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const bottomOfChat = useRef(null)
     const [input, setInput] = useState('')
@@ -88,9 +89,17 @@ const Chat = () => {
                     <div ref={bottomOfChat}/>
                 </div>
                 <div className={styles.bottom}>
-                    <div className={styles.searchInput}>
+                    <div style={{border: `1px solid ${isFocus ? 'black' : 'lightgray'}`, background: isFocus ? 'white' : '#f9f9f9'}} className={styles.searchInput}>
                         <form onSubmit={sendMessage}>
-                            <input value={input} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)} placeholder={'Type your message'} className={styles.input} type="text"/>
+                            <input
+                                onFocus={() => setIsFocus(true)}
+                                onBlur={() => setIsFocus(false)}
+                                value={input}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
+                                placeholder={'Type your message'}
+                                className={styles.input}
+                                type="text"
+                            />
                             <button type={'submit'}><SendIcon type={''} className={styles.sendIcon}/></button>
                         </form>
                     </div>
