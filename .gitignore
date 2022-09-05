@@ -5,14 +5,14 @@
 /.pnp
 .pnp.js
 
+.env.local
+
 # testing
 /coverage
 
 # next.js
 /.next/
 /out/
-
-/firebaseconfig.js
 
 # production
 /build
